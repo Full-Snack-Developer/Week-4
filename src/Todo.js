@@ -7,16 +7,37 @@ class Todo extends React.Component {
   }
 
   render() {
+    const { todolist } = this.props;
+    // debugger;
     return (
       <div>
-        <Todolist
-          uid={this.props.uid}
-          tag={this.props.tag}
-          status={this.props.status}
-        />
+        {todolist.map((item) => {
+          <Todolist data={item} />;
+        })}
+        {/* <Todolist data="Trung" /> */}
       </div>
     );
   }
 }
 
 export default Todo;
+
+//Phần code đã chạy theo được đề bài
+// import React from "react";
+
+// class Todo extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+
+//   render() {
+//     const { todo } = this.props;
+//     return (
+//       <p>
+//         {todo.uid} {todo.tag} {todo.status}
+//       </p>
+//     );
+//   }
+// }
+
+// export default Todo;
