@@ -7,16 +7,25 @@ class Header extends React.Component {
 
   handleChange = (event) => {
     const inputValue = event.target.value;
-    console.log(inputValue);
   };
 
   handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      console.log("Press Enter");
+      const { addTodoList } = this.props;
+      const inputValue = event.target.value;
+      const newTodo = {
+        id: Date.now(),
+        name: inputValue,
+        status: false,
+        isDone: false,
+      };
+      addTodoList(newTodo);
+      event.target.value = "";
     }
   };
 
   render() {
+    debugger;
     return (
       <div>
         <input
@@ -31,44 +40,3 @@ class Header extends React.Component {
 }
 
 export default Header;
-
-//Phần code đã chạy được theo đề bài
-// import React from "react";
-
-// class Header extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   handleChange = (event) => {
-//     const inputValue = event.target.value;
-//     console.log(inputValue);
-//   };
-
-//   handleKeyDown = (event) => {
-//     if (event.key === "Enter") {
-//       const inputValue = event.target.value;
-//       this.props.onSubmit({
-//         // uid: new Date().getTime(), // Tạo unique ID
-//         tag: inputValue,
-//         status: false,
-//       });
-//       event.target.value = "";
-//     }
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <input
-//           onChange={this.handleChange}
-//           onKeyDown={this.handleKeyDown}
-//           type="text"
-//           placeholder="Type something..."
-//         />
-//       </div>
-//     );
-//   }
-// }
-
-// export default Header;
