@@ -62,7 +62,6 @@ class App extends React.Component {
       const updatedTodoList = prevState.todolist.filter(
         (item) => item.id !== id
       );
-
       return {
         todolist: updatedTodoList,
       };
@@ -80,7 +79,6 @@ class App extends React.Component {
         }
         return item;
       });
-
       return {
         todolist: updatedTodoList,
       };
@@ -88,19 +86,13 @@ class App extends React.Component {
   };
 
   getIncompleteTasks(id, isDone) {
-    // Lọc theo id và isDone (nếu được cung cấp)
     return this.state.todolist.filter((item) => {
-      // Nếu id được cung cấp và không khớp, loại bỏ
       if (id !== undefined && item.id !== id) {
         return false;
       }
-
-      // Nếu isDone được cung cấp và không khớp, loại bỏ
       if (isDone !== undefined && item.isDone !== isDone) {
         return false;
       }
-
-      // Chỉ giữ lại những công việc chưa hoàn thành
       return !item.isDone;
     });
   }
