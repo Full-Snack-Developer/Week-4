@@ -7,12 +7,19 @@ class Todo extends React.Component {
   }
 
   render() {
-    const { todolist } = this.props;
+    const { todolist, markComplete, deleteTodo, updateInput } = this.props;
     debugger;
     return (
       <div>
         {todolist.map((item) => {
-          return <Todolist data={item} />;
+          return (
+            <Todolist
+              markComplete={markComplete}
+              deleteTodo={deleteTodo}
+              updateInput={updateInput}
+              data={item}
+            />
+          );
         })}
       </div>
     );
