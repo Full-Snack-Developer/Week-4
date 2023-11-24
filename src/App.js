@@ -7,6 +7,7 @@ import Footer from "./Footer";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.headerRef = React.createRef();
 
     this.state = {
       todolist: [],
@@ -85,6 +86,14 @@ class App extends React.Component {
     });
   };
 
+  //Chưa chạy
+  // // updateInput = (id, newName) => {
+  //   // Cập nhật giá trị ô input trong Header
+  //   if (this.headerRef.current) {
+  //     this.headerRef.current.setInputValue(newName);
+  //   }
+  // };
+
   getIncompleteTasks(id, isDone) {
     return this.state.todolist.filter((item) => {
       if (id !== undefined && item.id !== id) {
@@ -102,7 +111,7 @@ class App extends React.Component {
     debugger;
     return (
       <div>
-        <Header addTodoList={this.addTodoList} />
+        <Header addTodoList={this.addTodoList} ref={this.headerRef} />
         <Todo
           todolist={todolist}
           markComplete={this.markComplete}

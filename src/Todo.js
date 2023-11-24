@@ -11,16 +11,15 @@ class Todo extends React.Component {
     debugger;
     return (
       <div>
-        {todolist.map((item) => {
-          return (
-            <Todolist
-              markComplete={markComplete}
-              deleteTodo={deleteTodo}
-              updateInput={updateInput}
-              data={item}
-            />
-          );
-        })}
+        {todolist.map((item) => (
+          <Todolist
+            key={item.id}
+            markComplete={markComplete}
+            deleteTodo={deleteTodo}
+            updateInput={updateInput}
+            data={item}
+          />
+        ))}
       </div>
     );
   }

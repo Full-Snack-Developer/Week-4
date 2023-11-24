@@ -10,7 +10,7 @@ class Todolist extends React.Component {
   }
 
   handleDoubleClick = () => {
-    const { data } = this.props;
+    const { data, updateInput } = this.props;
     this.setState({ editing: true, userInput: data.name });
   };
 
